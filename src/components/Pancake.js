@@ -9,11 +9,23 @@ class Pancake extends React.Component {
       flippedAt: null
     };
   }
-
+  //sets up the interval updating the cooking time every second 
+  //calls componentWillUnmount()
   // TODO: create a componentDidMount() which will start the interval to count how long the pancake has been cooking
-
+  componentDidMount(){
+    //We need a timer on each pancake to recode how long its been cooking
+    //the startIntervale() method is already there 
+    //componentDidMount() is the point at which the pancake component gets added to the page which will start the counter
+    this.startInterval()
+    //should see that when a pancake is added a timer is added
+  }
   // TODO: create a componentWillUnmount() which will clear the interval
-
+  componentWillUnmount(){
+    //we need to tidy up and remove the timer as soon as it's not needed anymore
+    //you shouldn't leave your intervals ticking after the component using them has been dismounted
+    //cleanUpInterval already exists, you just need to call it
+    this.cleanUpInterval()
+  }
   updateCounter = () => {
     this.setState({
       timeCooked: this.state.timeCooked + 1
