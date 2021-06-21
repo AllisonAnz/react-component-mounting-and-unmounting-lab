@@ -17,7 +17,13 @@ class Game extends React.Component {
   }
 
   // TODO: create a componentDidMount() which will set the current time
-  
+  //set the initial time when the game was started in componentDidMount 
+  //setCurrentTime() already exists, but not yet called, call the setCurrentTime() when the 
+  //component is first created 
+  componentDidMount(){
+    this.setCurrentTime()
+    //You should see the current time at the top of the page
+  }
   setCurrentTime = () => {
     this.setState({ time: new Date(Date.now())});
   }
